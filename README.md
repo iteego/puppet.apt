@@ -1,11 +1,11 @@
-# iteego/puppet.ec2
+# iteego/puppet.apt
 ## License
-    iteego/puppet.ec2: puppet recipes for using amazon ec2
+    iteego/puppet.apt: puppet recipes for using amazon apt
     
      Copyright 2012 Iteego, Inc.
      Author: Marcus Pemer <marcus@iteego.com>
     
-     iteego/puppet.ec2 is free software: you can redistribute it and/or modify
+     iteego/puppet.apt is free software: you can redistribute it and/or modify
      it under the terms of the GNU General Public License as published by
      the Free Software Foundation, either version 3 of the License, or
      (at your option) any later version.
@@ -15,18 +15,18 @@
      GNU General Public License for more details.
     
      You should have received a copy of the GNU General Public License
-     along with iteego/puppet.ec2.  If not, see <http://www.gnu.org/licenses/>.
+     along with iteego/puppet.apt.  If not, see <http://www.gnu.org/licenses/>.
     
 
-## EC2 puppet module
+## apt puppet module
 
-The ec2 puppet module allows you to interact with the Amazon EC2 system.
+The apt puppet module allows you to interact with the Amazon apt system.
 
 You would include the module under your puppet modules directory
 as a git submodule, like so:
 
     cd <your puppet repo>/modules
-    git submodule add git@github.com:iteego/puppet.ec2.git ec2
+    git submodule add git@github.com:iteego/puppet.apt.git apt
     git submodule update
 
 Don't forget to commit your submodule ref in your parent repository
@@ -35,19 +35,19 @@ Don't forget to commit your submodule ref in your parent repository
 
 After this is done, you can use the submodule like so:
 
-    include ec2
+    include apt
 
     .
     .
     .
     # Run this once:
-    ec2::s3fs_installation { 's3fs_installation': }
+    apt::s3fs_installation { 's3fs_installation': }
 
     # Run one of these for each mount point you want
     # note that the buckets have to exist
     # the module does not automatically create them...
     #
-    ec2::s3fs_mount { 'some-unique-name-of-your-choice':
+    apt::s3fs_mount { 'some-unique-name-of-your-choice':
       bucket            => '<YOUR BUCKET NAME>',
       access_key        => '<YOUR ACCESS KEY>',
       secret_access_key => '<YOUR SECRET ACCESS KEY>',
