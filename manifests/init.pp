@@ -17,7 +17,7 @@ class apt {
     range  => '2 - 4',
   }
 
-  exec { '/usr/bin/apt-get update':
+  exec { 'maintenance-apt-get-update':
     command => '/usr/bin/apt-get update',
     require => File['/etc/apt/sources.list'],
     schedule => 'maintenace',
