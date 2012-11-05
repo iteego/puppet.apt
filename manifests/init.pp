@@ -12,15 +12,4 @@ class apt {
     refreshonly => true,
   }
 
-  schedule { 'maintenance':
-    period => daily,
-    range  => '2 - 4',
-  }
-
-  exec { 'maintenance-apt-get-update':
-    command => '/usr/bin/apt-get update',
-    require => File['/etc/apt/sources.list'],
-    schedule => 'maintenace',
-  }
-
 }
