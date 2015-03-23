@@ -1,7 +1,7 @@
 class apt {
 
   file { '/etc/apt/sources.list':
-    content => template('apt/etc/apt/sources.list.erb'),
+    content => template("apt/etc/apt/sources-${distrib_id}.list.erb"),
     ensure => present,
   }
 
